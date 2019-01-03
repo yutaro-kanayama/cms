@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>CMS - 顧客管理システム</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<!-- header -->
+<header class="header">
+	<div class="header-inner clearfix">
+		<div class="header-logo">顧客管理システム</div>
+		<nav class="header-nav">
+			<ul class="clearfix">
+				<li><a href="search.php">顧客検索</a></li>
+				<li><a href="create.php">新規登録</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="main">
+	<div class="main-inner">
+		<div class="form-wrapper">
+			<h1 class="heading">登録更新確認</h1>
+			<form action="confirm.php" method="post"> 
+				<div class="form-item">
+					<label class="form-label">顧客ID</label>
+					<p>1</p>
+				</div>
+				<div class="form-item">
+					<label class="form-label">氏名</label>
+					<input type="text" name="name" value="ゆうたま">
+				</div>
+				<div class="form-item">
+					<label class="form-label">自己紹介</label>
+					<textarea name="introduction">はじめまして、ゆうたまと申します。</textarea>
+				</div>
+				<div class="form-item">
+					<label class="form-label">職業</label>
+					<select name="occupation">
+						<option value="">-</option>
+						<option value="1">公務員</option>
+						<option value="2">会社員</option>
+						<option value="3">自営業</option>
+					</select>
+				</div>
+				<div class="form-item">
+					<label class="form-label">生年月日</label>
+					<input type="date" name="birthday" value="2000-01-01">
+				</div>
+				<a href="#" class="form-button">戻る</a>
+				<a href="#" class="form-button">登録</a>
+			</form>
+		</div>
+	</div>
+</main>
+</body>
+</html>

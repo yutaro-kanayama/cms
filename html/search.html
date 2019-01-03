@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>CMS - 顧客管理システム</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<!-- header -->
+<header class="header">
+	<div class="header-inner clearfix">
+		<div class="header-logo">顧客管理システム</div>
+		<nav class="header-nav">
+			<ul class="clearfix">
+				<li><a href="search.php">顧客検索</a></li>
+				<li><a href="create.php">新規登録</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="main">
+	<div class="main-inner">
+		<!-- 検索ボックス -->
+		<form class="form-wrapper search-box" action="#" method="post">
+			<h1 class="heading">顧客検索</h1>
+			<div class="form-item">
+				<label class="form-label">氏名</label>
+				<input type="text" name="title">
+			</div>
+			<div class="form-item">
+				<label class="form-label">職業</label>
+				<input type="checkbox" name="occupation[]">公務員
+				<input type="checkbox" name="occupation[]">会社員
+				<input type="checkbox" name="occupation[]">自営業
+			</div>
+			<div class="form-item">
+				<label class="form-label">生年月日</label>
+				<input type="date" name="from_birthday" class="search-date"> ~ 
+				<input type="date" name="to_birthday" class="search-date">
+			</div>
+			<input class="form-button" type="submit" value="検索">
+		</form>
+
+		<!-- 検索結果 -->
+		<p>検索結果 3件</p>
+		<table class="search-result">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>氏名</th>
+					<th>職業</th>
+					<th>生年月日</th>
+					<th class="col-2">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>あいうえおかきくけこさしすせそたちつてと</td>
+					<td>自営業</td>
+					<td>2003-10-24</td>
+					<td><a href="#">編集</a><a href="#">削除</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>ゆうたま</td>
+					<td>自営業</td>
+					<td>2003-10-24</td>
+					<td><a href="#">編集</a><a href="#">削除</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>ゆうたま</td>
+					<td>自営業</td>
+					<td>2003-10-24</td>
+					<td><a href="#">編集</a><a href="#">削除</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</main>
+</body>
+</html>
