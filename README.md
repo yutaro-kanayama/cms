@@ -14,7 +14,9 @@ C : ***.php
 
 ## ファイル構成
 
-CSS - CSSファイル
+config - 設定ファイル
+
+css - CSSファイル
 
 html - ビューの元となったHTML
 
