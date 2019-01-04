@@ -1,11 +1,13 @@
 <?php
 
+require_once 'config/DBConfig.php';
+
 class OccupationLogic {
 
 	public function getOccupationList() {
 		$occupations = null;
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $con->prepare('SELECT * FROM occupation ORDER BY id ASC');
 			$stmt->execute();

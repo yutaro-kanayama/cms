@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config/DBConfig.php';
+
 class CustomerLogic {
 
 	/**
@@ -7,7 +9,7 @@ class CustomerLogic {
 	 */
 	public function register($name, $introduction, $occupation_id, $birthday) {
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "INSERT INTO customer (id, name, introduction, occupation_id, birthday, created_at, updated_at) VALUES (NULL, :name, :introduction, :occupation_id, :birthday, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 			$stmt = $con->prepare($sql); 
@@ -29,7 +31,7 @@ class CustomerLogic {
 	public function get($id) {
 		$customer = null;
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$stmt = $con->prepare('SELECT * FROM customer WHERE id = :id'); 
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			$stmt->execute();
@@ -48,7 +50,7 @@ class CustomerLogic {
 	public function count($name, $occupations, $from_birthday, $to_birthday) {
 		$count = 0;
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// SQL作成
@@ -103,7 +105,7 @@ class CustomerLogic {
 	public function search($name, $occupations, $from_birthday, $to_birthday, $limit, $offset) {
 		$customers = array();
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			// SQL作成
@@ -175,7 +177,7 @@ class CustomerLogic {
 	 */
 	public function edit($id, $name, $introduction, $occupation_id, $birthday) {
 		try {
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "UPDATE customer SET name = :name , introduction = :introduction, occupation_id = :occupation_id, birthday = :birthday, updated_at = CURRENT_TIMESTAMP WHERE id = :id";
 			$stmt = $con->prepare($sql); 
@@ -197,8 +199,7 @@ class CustomerLogic {
 	 */
 	public function delete($id) {
 		try {
-			// データベースに接続
-			$con = new PDO('mysql:host=localhost;dbname=cms;charset=utf8', 'root', 'root');
+			$con = new PDO(DBConfig::DNS, DBConfig::USER, DBConfig::PASSWD);
 			$stmt = $con->prepare('DELETE FROM customer WHERE id = :id'); 
 			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 			$stmt->execute();
